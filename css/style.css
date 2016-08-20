@@ -1,9 +1,11 @@
+/**LOGIN Y REGISTRO**/
 .log{
 	padding: 20px;
 	font-size: 14px;
 	background-color: #fff;
 	border: 1px solid #d8dee2;
 }
+/*arregla el espacio entre registro y ovide contraseña*/
 .pad{
 	padding-left: 30%;
 }
