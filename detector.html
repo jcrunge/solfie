@@ -6,7 +6,49 @@
     <title>Detector de Entrada/Audio</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script>
-        var promisifiedOldGUM = function (constraints) {
+    var pausa= true;
+    function escucharmicro(){
+        if (pausa) {
+             //Cambiar estadomic
+            textoPausaMic();
+            entradaMic({
+                audio: true
+            }, al_aire);
+            pausa = false;
+        }
+
+        else{
+            miFuente.disconnect();
+            //Estado del botón de entrada de mic
+            textoPlayMic();
+            //Vengo del silencio-> borro texto en marco
+            pulsaElBotonReproducir();
+            pausa = true;
+            }
+    }
+
+    function error() { 
+        alert('Falló la generación de la cadena de Audio. Safari no soporta getUserMedia aún....');
+    }
+    function entradaMic(medio, llamada){
+        try {
+        navigator.getUserMedia =
+            navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia;
+        navigator.getUserMedia(medio, llamada, error);
+
+        // Older browsers might not implement mediaDevices at all, so we set an empty object first
+        if (navigator.mediaDevices === undefined) {
+            navigator.mediaDevices = {};
+        }
+
+    } catch (e) {
+        alert('Nos aprarece algún error en la toma de entrada de micrófono... :' + e);
+    }
+    }      
+    //el de arriba ya lo hace  
+    /**var promisifiedOldGUM = function (constraints) {
 
             // First get ahold of getUserMedia, if present
             var getUserMedia = (navigator.getUserMedia ||
@@ -48,7 +90,26 @@
 
         .catch(function (err) {
             console.log(err.name + ": " + err.message);
-        });
+        });*/
+
+    function al_aire(entrada) {
+        var miFuente;
+
+        var AudioContexto = window.AudioContext || window.webkitAudioContext;
+        var contextoDeAudio = new AudioContexto();
+
+        //analyser.fftSize = 2048;
+
+        var fuente = contextoDeAudio.createMediaStreamSource(entrada);
+        // crea analizador
+        contextoDeAudio.analyser = contextoDeAudio.createAnalyser();
+        contextoDeAudio.analyser.fftSize = 2048;
+        //cadenaDeAudio(fuente);
+        fuente.connect(contextoDeAudio.analyser);
+        //aun falta crear dibujar espectro
+        //requestAnimationFrame(dibujaEspectro.bind(this));
+        miFuente = fuente;
+    }
 
     </script>
 </head>
@@ -119,7 +180,7 @@
                             <td>82.41</td>
                             <td>87.31</td>
                             <td>92.50</td>
-                            <td>98.00</td>
+                            <td>98.00</td>()
                             <td>103.8</td>
                             <td>110.0</td>
                             <td>116.5</td>
@@ -220,7 +281,10 @@
                 </table>
             </div>
         </div>
+        <div>
+            <button id="microfono" type="button" class="btn btn-warning" onclick="escucharmicro()">Microfono</button>
+        </did>     
     </div>
 </body>
 
-</html>
+</html> 
