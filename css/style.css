@@ -59,9 +59,6 @@ header nav ul li {
 	padding: 20px 40px;
 	text-transform: uppercase;
 }
-header nav ul li:hover {
-	box-shadow: 1px 1px 1px black;
-}
 header nav ul li a {
 	color: black;
 	display:inline-block;
