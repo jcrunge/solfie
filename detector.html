@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Detector de Entrada/Audio</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script>
     var pausa= true;
     function escucharmicro(){
@@ -27,7 +27,7 @@
             }
     }
 
-    function error() { 
+    function error() {
         alert('Falló la generación de la cadena de Audio. Safari no soporta getUserMedia aún....');
     }
     function entradaMic(medio, llamada){
@@ -46,8 +46,8 @@
     } catch (e) {
         alert('Nos aprarece algún error en la toma de entrada de micrófono... :' + e);
     }
-    }      
-    //el de arriba ya lo hace  
+    }
+    //el de arriba ya lo hace
     /**var promisifiedOldGUM = function (constraints) {
 
             // First get ahold of getUserMedia, if present
@@ -283,8 +283,8 @@
         </div>
         <div>
             <button id="microfono" type="button" class="btn btn-warning" onclick="escucharmicro()">Microfono</button>
-        </did>     
+        </did>
     </div>
 </body>
 
-</html> 
+</html>

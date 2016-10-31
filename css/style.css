@@ -1,11 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	height: 100%;
+	width: 100%;
+	font-family: 'Comfortaa', cursive;
+
+}
+/*  Header */
+header{
+	height: 40%;
+	width: 100%;
+	display: block;
+}
+
+header .background-logo {
+	background-image: url(../img/background.jpg);
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+header .background-logo .logo {
+	background-image: url(../img/solfie-logo.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	margin: 0 auto;
+	width: 50%;
+}
+/* Menú */
+.menu {
+}
+nav {
+	height: 50px;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 20px;
+}
+
+header nav ul {
+	list-style: none;
+	background-color: white;
+}
+
+header nav ul li {
+	border: 1px solid black;
+	display:inline-block;
+	padding: 20px 40px;
+	text-transform: uppercase;
+}
+header nav ul li:hover {
+	box-shadow: 1px 1px 1px black;
+}
+header nav ul li a {
+	color: black;
+	display:inline-block;
+	text-decoration: none;
+}
+header nav ul li:hover a {
+	color: black;
+	text-decoration: none;
+	text-shadow: 15px 15px #ff9000;
+}
+.active {
+	border: 1px solid #ff9000;
+	color: #ff9000;
+	text-decoration: none;
+	text-shadow: 15px 15px black;
+}
+.active>a {
+	color: #ff9000;
+}
+.fixed {
+	width: 100%;
+	position:fixed;
+	top:0;
+	z-index: 1;
+}
+//*Title*/
+
+/* Content*/
+
+.content {
+	font-family: 'Josefin Sans', sans-serif;
+	margin-top: 50px;
+}
+
+
+
 /**LOGIN Y REGISTRO**/
-.log{
+.log {
 	padding: 20px;
 	font-size: 14px;
 	background-color: #fff;
 	border: 1px solid #d8dee2;
 }
 /*arregla el espacio entre registro y ovide contraseña*/
-.pad{
+.pad {
 	padding-left: 30%;
 }
